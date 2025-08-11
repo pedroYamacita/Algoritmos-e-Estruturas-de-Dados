@@ -15,10 +15,7 @@ CIRCULO* circulo_criar(PONTO *p, float raio){
     
     if(p==NULL) return NULL;
     
-    //condição de existencia de um circulo
-    if(raio<=0){
-        return NULL;
-    }
+
 
     CIRCULO* circ=(CIRCULO*)calloc(1, sizeof(CIRCULO));
     //verificar disponibilidade de memoria
