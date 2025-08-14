@@ -5,26 +5,31 @@
 #include <stdio.h>
 #include <math.h>
 
-struct ponto_ {
+struct ponto_
+{
     float x;
     float y;
-  };
+};
 
-PONTO* ponto_criar(float x, float y){
-    PONTO* ponto;
-    //verificação de disponibilidade de espaço na memoria
-    if((ponto=(PONTO*)calloc(1, sizeof(PONTO)))==NULL){
+PONTO *ponto_criar(float x, float y)
+{
+    PONTO *ponto;
+    // verificação de disponibilidade de espaço na memoria
+    if ((ponto = (PONTO *)calloc(1, sizeof(PONTO))) == NULL)
+    {
         exit(1);
     }
-    //atribuições
-    ponto->x=x;
-    ponto->y=y;
-    
+    // atribuições
+    ponto->x = x;
+    ponto->y = y;
+
     return ponto;
 }
 
-void ponto_apagar(PONTO *p){
-    if(p != NULL){
+void ponto_apagar(PONTO *p)
+{
+    if (p != NULL)
+    {
         free(p);
     }
 }
@@ -33,28 +38,32 @@ void ponto_apagar(PONTO *p){
     p->y=y;
     return
 }*/
-float y_do_ponto(PONTO *p){
-    if(p==NULL) exit(1);
-    
+float y_do_ponto(PONTO *p)
+{
+    if (p == NULL)
+        exit(1);
+
     return p->y;
 }
 
-float x_do_ponto(PONTO *p){
-    if(p==NULL) exit(1);
-   
+float x_do_ponto(PONTO *p)
+{
+    if (p == NULL)
+        exit(1);
+
     return p->x;
 }
 
-float calcular_distancia(CIRCULO* circ, PONTO* p){
-    if(circ==NULL || p==NULL) exit(1);
+float calcular_distancia(PONTO *p1, PONTO *p2)
+{
+    if (p1 == NULL || p2 == NULL)
+        exit(1);
     float deltaX, deltaY, dist;
-    PONTO* centro_do_circulo = get_centro(circ);
 
-    deltaX = centro_do_circulo->x - p->x;
-    deltaY = centro_do_circulo->y - p->y;
+    deltaX = p1->x - p2->x;
+    deltaY = p1->y - p2->y;
 
-    dist=sqrt((deltaX * deltaX) + (deltaY * deltaY));
-    
-    
+    dist = sqrt((deltaX * deltaX) + (deltaY * deltaY));
+
     return dist;
 }

@@ -30,7 +30,7 @@ int main(){
         return 1;
     }
     
-    dist=calcular_distancia(circulo, ponto);
+    dist=calcular_distancia(centro_do_circulo, ponto);
 
     if(dist<raio){
         printf("O ponto é interior à circunferência.\nDistância: %.2f\n", dist);

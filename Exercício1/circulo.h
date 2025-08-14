@@ -2,8 +2,11 @@
     #define CIRCULO_H
 
     #include "ponto.h"
-    typedef struct ponto_ PONTO;
+    
     typedef struct circulo_ CIRCULO;
+    //circullo é cliente de ponto
+    typedef struct ponto_ PONTO;
+
     CIRCULO *circulo_criar(PONTO *p, float raio);
     void circulo_apagar (CIRCULO* circ);
     float circulo_area (CIRCULO* circ);
