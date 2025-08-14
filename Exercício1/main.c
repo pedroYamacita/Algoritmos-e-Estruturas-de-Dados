@@ -1,23 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #include "ponto.h"
 #include "circulo.h"
 
-float calcularDistancia(CIRCULO* circ, PONTO* ponto){
-    if(circ==NULL || ponto==NULL) exit(1);
 
-    float deltaX, deltaY;
-    float dist;
-    deltaX = get_x_do_centro(circ) - x_do_ponto(ponto);
-    deltaY = get_y_do_centro(circ) - y_do_ponto(ponto);
-
-    dist=sqrt((deltaX * deltaX) + (deltaY * deltaY));
-    
-    
-    return dist;
-}
 
 int main(){
     float x, y, xCentro, yCentro, raio;
@@ -36,12 +23,14 @@ int main(){
     }
 
     CIRCULO* circulo = circulo_criar(centro_do_circulo, raio);
+   
     if(circulo == NULL){
         ponto_apagar(centro_do_circulo);
         ponto_apagar(ponto);
         return 1;
     }
-    dist=calcularDistancia(circulo, ponto);
+    
+    dist=calcular_distancia(circulo, ponto);
 
     if(dist<raio){
         printf("O ponto é interior à circunferência.\nDistância: %.2f\n", dist);

@@ -43,15 +43,6 @@ float circulo_area(CIRCULO *circ){
     return area;
 }
 
-float get_x_do_centro(CIRCULO* circ){
-    if(circ==NULL || circ->p==NULL) exit(1);
-
-    float xCentro = x_do_ponto(circ->p);
-    return xCentro;
-}
-
-float get_y_do_centro(CIRCULO* circ){
-    if(circ==NULL || circ->p==NULL) exit(1);
-    float yCentro = y_do_ponto(circ->p);
-    return yCentro;
+PONTO *get_centro(CIRCULO *circ){
+    return circ->p;
 }
