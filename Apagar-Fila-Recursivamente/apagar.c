@@ -5,19 +5,29 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+void apagar_nos_recursivamente(NO *no);
+
 void fila_apagar(FILA **f)
 {
     if (f == NULL || *f == NULL)
     {
         return;
     }
-    ITEM *frente = NULL;
-    while ((frente = fila_remover(*f)) != NULL)
-    {
-        item_apagar(&frente);
-    }
+
+    apagar_nos_recursivamente((*f)->inicio);
 
     free(*f);
     *f = NULL;
-    fila_apagar(f);
+}
+
+void apagar_nos_recursivamente(NO *no)
+{
+    if (no == NULL)
+    {
+        return;
+    }
+    apagar_nos_recursivamente(no->proximo);
+    item_apagar(&no->item);
+    free(no);
+    no = NULL;
 }
